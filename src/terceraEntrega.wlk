@@ -173,10 +173,9 @@ class Album {
 	var unidades
 	var unidadesVendidas
 
-	constructor(canciones, tituloDisco,dia,mes,anio, unidadesQueSalieron, unidadesQueSeVendieron) {
+	constructor(canciones,dia,mes,anio, unidadesQueSalieron, unidadesQueSeVendieron) {
 		listaDeCanciones = canciones 
 		fechaLanzamiento = new Date(dia,mes,anio)
-		 titulo = tituloDisco
 		unidades = unidadesQueSalieron
 		unidadesVendidas = unidadesQueSeVendieron
 	}
@@ -216,8 +215,9 @@ class Cancion {
 	var duracion
 	var letra
 
-	constructor(nombreCancion, duracionCancion, letraCancion) {
-		nombre = nombreCancion duracion = duracionCancion letra = letraCancion
+	constructor(duracionCancion, letraCancion) {
+		duracion = duracionCancion 
+		letra = letraCancion
 	}
 	method duracion() {
 		return duracion
@@ -242,18 +242,14 @@ class Cancion {
 
 	
 class Remix inherits Cancion{
-	constructor(nombreCancion, duracionCancion, letraCancion) = super (nombreCancion, duracionCancion, letraCancion){
+	constructor(duracionCancion, letraCancion) = super (duracionCancion, letraCancion){
 		duracion = duracionCancion*3
 		letra = "mueve tu cuelpo baby "+letraCancion+" yeah oh yeah"
 	}
 }
 
 class Mashup inherits Cancion{
-	
-	
-	
-	constructor(nombreCancion, duracionCancion, letraCancion, nombreCancion2, duracionCancion2, letraCancion2) = super (nombreCancion, duracionCancion, letraCancion){
-		nombre = nombreCancion + " " + nombreCancion2
+	constructor(duracionCancion, letraCancion, duracionCancion2, letraCancion2) = super (duracionCancion, letraCancion){
 		duracion = duracionCancion.max(duracionCancion2)
 		letra = letraCancion + " " + letraCancion2
 	}
@@ -288,14 +284,12 @@ class Presentacion {
 	var lugar
 	var cantantes = []
 	var fechaDePresentacion
-	method modificarFecha(dia, mes, anio) {
+	constructor(_lugar,dia,mes,anio){
+		lugar = _lugar
 		fechaDePresentacion = new Date(dia, mes, anio)
 	}
-	method modificarLugar(nuevoLugar) {
-		lugar = nuevoLugar
-	}
-	method modificarCantantes(listaCantantes) {
-		cantantes = listaCantantes
+	method agregarCantantes(cantante) {
+		cantantes.add(cantante)
 	}
 	method esEnLugarConcurrido() {
 		return lugar.concurrido()
@@ -309,7 +303,8 @@ class Presentacion {
 }
 	
 class PresentacionConRestricciones inherits Presentacion{
-	var cancionAlicia = new Cancion("Canci?n de Alicia en el pa?s",510,"Qui?n sabe Alicia, este pa?s no estuvo hecho porque s?. Te vas a ir, vas a salir pero te quedas, ?d?nde m?s vas a ir? Y es que aqu?, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acab? ese juego que te hac?a feliz.")
+
+	var cancionAlicia = new Cancion(510,"Quién sabe Alicia, este país no estuvo hecho porque sí. Te vas a ir, vas a salir pero te quedas, ¿dónde más vas a ir? Y es que aquí, sabes el trabalenguas, trabalenguas, el asesino te asesina, y es mucho para ti. Se acabó ese juego que te hacía feliz.")
 	method cantanteConHabilidadMayorAlMinimo(cantante){
 		return cantante.habilidadMayorA(70)
 	}
@@ -322,39 +317,12 @@ class PresentacionConRestricciones inherits Presentacion{
 	method agregarUnCantante(cantante){
 		if (self.cantanteConHabilidadMayorAlMinimo(cantante) && self.cantanteDebeSerCompositor(cantante) && self.cantanteDebeInterpretarBienLaCancion(cantante,cancionAlicia)){
 			cantantes.add(cantante)	
-		}
-		else{
-			if (not (self.cantanteConHabilidadMayorAlMinimo(cantante))) {error.throwWithMessage("El cantante no cumple con la habilidad minima de 70!!")}
-			if (not (self.cantanteDebeSerCompositor(cantante))) {error.throwWithMessage("El cantante no es compositor!!")}
-			else {error.throwWithMessage ("El cantante no interpreta la cancion Alicia!!")}
 		}	
 	}
 	method cantantesAceptados(){
 		return cantantes
 	}
 	
-}
-
-//Punto Bonus
-class PresentacionRestringida inherits Presentacion{
-	var listaDeCondiciones = []
-	method agregarCondiciones(condicion){
-		listaDeCondiciones.add(condicion)
-	}
-	method eleminarCondiciones(condicion){
-		listaDeCondiciones.remove(condicion)
-	}
-	method agregarUnCantante(cantante){
-		if (listaDeCondiciones.all({condicion => condicion.seCumple(cantante)})){
-			cantantes.add(cantante)
-		}
-	}
-	method condicionesVigentes(){
-		return listaDeCondiciones
-	}
-	method cantantesAceptados(){
-		return cantantes
-	}
 }
 
 class CondicionHabilidadMayorA{
@@ -418,6 +386,3 @@ class CondicionSabeInterpretar{
 	}
 }
 
-//
-	
-	
