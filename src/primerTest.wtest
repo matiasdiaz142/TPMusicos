@@ -1,0 +1,90 @@
+import primeraEntrega.*
+describe "Test1" {
+
+var laFamilia
+var cisne
+fixture{
+	laFamilia = new Cancion()
+	laFamilia.duracion(264)
+	laFamilia.letra("Quiero brindar por mi gente sencilla, por el amor brindo por la familia")
+	cisne = new Cancion()
+	cisne.duracion(312)
+	cisne.letra("Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
+	
+
+}
+test "Habilidad es 25 si Joaquin canta en Pimpinela"{
+	
+	assert.equals(25,joaquin.habilidad())
+}
+
+test "Habilidad es 20 si Joaquin es solista"{
+	
+	joaquin.dejarGrupo()
+	assert.equals(20,joaquin.habilidad())
+}
+
+test "Habilidad es 50 si Lucia canta en Pimpinela"{
+
+	assert.equals(50,lucia.habilidad())
+}
+
+test "Habilidad es 70 si Lucia es solista"{
+	
+	lucia.dejarGrupo()
+	assert.equals(70,lucia.habilidad())
+}
+
+test "Luis alberto toca con la Fender y su habilidad es 80"{
+	
+	luisAlberto.guitarra(fender)
+	assert.equals(80,luisAlberto.habilidad())
+}
+
+test "Luis alberto toca con la gibson sana y su habilidad es 100"{
+	
+	luisAlberto.guitarra(gibson)
+	assert.equals(100,luisAlberto.habilidad())
+}
+
+test "Luis alberto toca con la gibson rota y su habilidad es 40"{
+	
+	luisAlberto.guitarra(gibson)
+	gibson.cambiarARota()
+	assert.equals(40,luisAlberto.habilidad())
+}
+
+test "Joaquin no interpreta bien La Familia"{
+	
+	assert.notThat(joaquin.interpretaBien(laFamilia))
+}
+
+test "Joaquin interpreta bien Cisne"{
+	
+	assert.that(joaquin.interpretaBien(cisne))
+}
+
+test "Lucia interpreta bien La Familia"{
+	
+	assert.that(lucia.interpretaBien(laFamilia))
+}
+
+test "Lucia no interpreta bien Cisne"{
+	
+	assert.notThat(lucia.interpretaBien(cisne))
+}
+
+test "Luis Alberto interpreta bien Cisne y La Familia"{
+		
+	assert.that(luisAlberto.interpretaBien(cisne))
+	assert.that(luisAlberto.interpretaBien(laFamilia))
+}
+ 
+test "Joaquin cobra 50$ por la presentacion del Luna"{
+	
+	assert.equals(50,joaquin.cobra(lunaPark))
+	
+}
+ 
+
+}

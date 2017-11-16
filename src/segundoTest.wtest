@@ -1,0 +1,40 @@
+import segundaEntrega.*
+describe "Test2" {
+
+var crisantemo
+var almaDeDiamante
+var soledad
+var joaquin
+var luisAlberto
+var laSole
+var eres
+var corazonAmericano
+
+fixture{
+	crisantemo = new Cancion(crisantemo,175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
+	almaDeDiamante = new Cancion(almaDeDiamante,216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
+	soledad = new VocalistaPopular(55,true,laSole,"amor")
+
+	laSole = new Album([eres,corazonAmericano],04,02,2005,200000,130000)
+	eres = new Cancion(eres,145,"Eres lo mejor que me pasó en la vida, no tengo duda, no habrá más nada después de ti. Eres lo que le dio brillo al día a día, y así será por siempre, no cambiará, hasta el final de mis días")
+	corazonAmericano = new Cancion (corazonAmericano,154,"Canta corazón, canta más alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazón, como soñamos.")
+	
+	luisAlberto = new VocalistaPopular(55,true,laSole,"amor")
+	
+	
+}
+test "Crisantemo es corta"{
+	assert.that(crisantemo.esCorta())
+}
+test "Alma de diamante es corta"{
+	assert.that(almaDeDiamante.esCorta())
+}
+test "Soledad es minimalista"{
+	assert.that(soledad.esMinimalista())
+}
+/*aca me quede */
+test "Luis Alberto es minimalista"{
+	assert.that(true)
+}
+
+}
