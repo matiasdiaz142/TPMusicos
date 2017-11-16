@@ -1,7 +1,7 @@
 
 class Musico {
 	var habilidad
-	var listaAlbumes = [ ]
+	var listaAlbumes
 	var esSolista
 
 	constructor(cuantaHabilidad, solista, albumesPublicados) {
@@ -141,7 +141,7 @@ object fender {
 }
 
 class Album {
-	var listaDeCanciones = []
+	var listaDeCanciones
 	var fechaLanzamiento
 	var unidades
 	var unidadesVendidas
@@ -174,12 +174,12 @@ class Album {
 }
 
 class Cancion {
-	var nombre
 	var duracion
 	var letra
 
-	constructor(nombreCancion, duracionCancion, letraCancion) {
-		nombre = nombreCancion duracion = duracionCancion letra = letraCancion
+	constructor(duracionCancion, letraCancion) {
+		duracion = duracionCancion 
+		letra = letraCancion
 	}
 	method duracion() {
 		return duracion

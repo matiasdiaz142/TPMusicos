@@ -4,22 +4,28 @@ describe "Test2" {
 var crisantemo
 var almaDeDiamante
 var soledad
-var joaquin
-var luisAlberto
+var luisAlberto1
 var laSole
 var eres
 var corazonAmericano
+var justCrisantemo
+var paraLosArboles
+var cisne
 
 fixture{
-	crisantemo = new Cancion(crisantemo,175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
-	almaDeDiamante = new Cancion(almaDeDiamante,216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
-	soledad = new VocalistaPopular(55,true,laSole,"amor")
-
-	laSole = new Album([eres,corazonAmericano],04,02,2005,200000,130000)
-	eres = new Cancion(eres,145,"Eres lo mejor que me pasó en la vida, no tengo duda, no habrá más nada después de ti. Eres lo que le dio brillo al día a día, y así será por siempre, no cambiará, hasta el final de mis días")
-	corazonAmericano = new Cancion (corazonAmericano,154,"Canta corazón, canta más alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazón, como soñamos.")
 	
-	luisAlberto = new VocalistaPopular(55,true,laSole,"amor")
+	soledad = new VocalistaPopular(55,true,[laSole],"amor")
+	luisAlberto1 = new Musico(8,true,[paraLosArboles,justCrisantemo])
+	
+	laSole = new Album([eres,corazonAmericano],04,02,2005,200000,130000)
+	justCrisantemo = new Album([crisantemo],05,12,2007,28000,27500)
+	paraLosArboles = new Album([cisne,almaDeDiamante],05,12,2007,28000,27500)
+	
+	cisne = new Cancion(312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar")
+	almaDeDiamante = new Cancion(216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante")
+	eres = new Cancion(145,"Eres lo mejor que me pasó en la vida, no tengo duda, no habrá más nada después de ti. Eres lo que le dio brillo al día a día, y así será por siempre, no cambiará, hasta el final de mis días")
+	corazonAmericano = new Cancion (154,"Canta corazón, canta más alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazón, como soñamos.")
+	crisantemo = new Cancion(175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo")
 	
 	
 }
@@ -27,14 +33,13 @@ test "Crisantemo es corta"{
 	assert.that(crisantemo.esCorta())
 }
 test "Alma de diamante es corta"{
-	assert.that(almaDeDiamante.esCorta())
+	assert.notThat(almaDeDiamante.esCorta())
 }
 test "Soledad es minimalista"{
 	assert.that(soledad.esMinimalista())
 }
-/*aca me quede */
 test "Luis Alberto es minimalista"{
-	assert.that(true)
+	assert.that(luisAlberto1.esMinimalista())
 }
 
 }
