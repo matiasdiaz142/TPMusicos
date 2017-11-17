@@ -1,17 +1,76 @@
 import terceraEntrega.*
 describe "Test3" {
 
-test "Joaquin interpreta bien La Familia"{
+test "Joaquin canta bien La Familia"{
 	
 	assert.that(joaquin.interpretaBien(laFamilia))
 }
-test "Joaquin interpreta bien Cisne"{
+test "Joaquin canta bien Cisne"{
 	
 	assert.that(joaquin.interpretaBien(cisne))
 }
-test "Lucia interpreta bien La Familia como solista"{
+test "Luciacanta bien La Familia como solista"{
 	
 	assert.that(lucia.interpretaBien(laFamilia))
 }
-
+test "Lucia canta bien Cisne como solista"{
+	
+	lucia.dejarGrupo()	
+	assert.that(lucia.interpretaBien(cisne))
+}
+test "Lucia no canta bien Cisne en el Grupo Pimpinela"{
+	
+	lucia.enGrupo()	
+	assert.notThat(lucia.interpretaBien(cisne))
+}
+test "LuisAlberto canta bien La Familia"{
+	
+	assert.that(luisAlberto.interpretaBien(laFamilia))
+}
+test "LuisAlberto canta bien Cisne"{
+	
+	assert.that(luisAlberto.interpretaBien(cisne))
+}
+test "La cancion con mas duracion del album Especial La Familia es La Familia"{
+	
+	assert.equals(laFamilia,especialLaFamilia.cancionConLaDuracionMasLarga())
+}
+test "La cancion con mas duracion del album La Sole La Familia es Corazon Americano"{
+	
+	assert.equals(corazonAmericano,laSole.cancionConLaDuracionMasLarga())
+}
+test "La cancion la letra mas larga del album La Sole La Familia es eres"{
+	
+	assert.equals(eres,laSole.cancionConLaLetraMasLarga())
+}
+test "El remix de La Familia dura 792"{
+	
+	assert.equals(792,remixLaFamilia.duracion())
+}
+test "La letra del remix de La Familia es: 'mueve tu cuelpo baby Quiero brindar por mi gente sencilla, por el amor brindo por la familia yeah oh yeah'"{
+	
+	assert.equals("mueve tu cuelpo baby Quiero brindar por mi gente sencilla, por el amor brindo por la familia yeah oh yeah",remixLaFamilia.letra())
+}
+test "El mashup de “Alma de Diamante” y  “Crisantemo” dura 216 segundos"{
+	
+	assert.equals(216,mashupDiamanteyCrisantemo.duracion())
+}
+test "La letra del mashup de “Alma de Diamante” y  “Crisantemo” es: 'Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo'"{
+	
+	assert.equals("Ven a mi con tu dulce luz alma de diamante. Y aunque el sol se nuble despues sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven asi con la humanidad alma de diamante Tocame junto a esta pared, yo quede por aqui... cuando no hubo mas luz... quiero mirar a traves de mi piel... Crisantemo, que se abrio... encuentra el camino hacia el cielo",mashupDiamanteyCrisantemo.letra())
+}
+test "Agregar a Luis Alberto a Pdpalooza"{
+	
+	pdpalooza.agregarUnCantante(luisAlberto)
+}
+test "Agregar a Joaquin a Pdpalooza"{
+	
+	joaquin.dejarGrupo()	
+	pdpalooza.agregarUnCantante(joaquin)
+}
+test "Agregar a Soledad a Pdpalooza con 80 de habilidad"{
+	
+	soledad.modificarHabilidad(80)
+	pdpalooza.agregarUnCantante(soledad)
+}
 }
