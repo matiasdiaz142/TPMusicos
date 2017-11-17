@@ -385,4 +385,31 @@ class CondicionSabeInterpretar{
 		}
 	}
 }
-
+object soledad inherits VocalistaPopular(55,true,[laSole],"amor"){}
+object laSole inherits Album([eres,corazonAmericano],04,02,2005,200000,130000){}
+object eres inherits Cancion(145,"Eres lo mejor que me pasó en la vida, no tengo duda, no habrá más nada después de ti. Eres lo que le dio brillo al día a día, y así será por siempre, no cambiará, hasta el final de mis días"){}
+object corazonAmericano inherits Cancion (154,"Canta corazón, canta más alto, que tu pena al fin se va marchando, el nuevo milenio ha de encontrarnos, junto corazón, como soñamos."){}
+	
+object luisAlberto1 inherits Musico(8,true,[paraLosArboles,justCrisantemo]){}
+object paraLosArboles inherits Album([cisne,almaDeDiamante],05,12,2007,28000,27500){}
+object justCrisantemo inherits Album([crisantemo],05,12,2007,28000,27500){}
+object cisne inherits Cancion(312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar"){}
+object almaDeDiamante inherits Cancion(216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante"){}
+object crisantemo inherits Cancion(175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo"){}
+	
+object joaquin inherits Musico(20,false,[especialLaFamilia]){
+	override method interpretaBien(cancion){
+	return self.obtenerListaDeCanciones().contains(cancion) || self.habilidad() > 60 || cancion.duracion()> 300
+	}
+}
+object especialLaFamilia inherits Album([laFamilia],17,06,1992,100000,89000){}
+object laFamilia inherits Cancion(264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia"){}
+	
+object kike inherits MusicoDeGrupo(60,false,[],20){}
+object lucia inherits VocalistaPopular(0,true,[],null){}
+	
+object remixLaFamilia inherits Remix(264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia"){}
+object mashupDiamanteyCrisantemo inherits Mashup(216,"Ven a mí con tu dulce luz alma de diamante. Y aunque el sol se nuble después sos alma de diamante. Cielo o piel silencio o verdad sos alma de diamante. Por eso ven así con la humanidad alma de diamante",175,"Tócame junto a esta pared, yo quede por aquí... cuando no hubo más luz... quiero mirar a través de mi piel... Crisantemo, que se abrió... encuentra el camino hacia el cielo"){}
+object pdpalooza inherits PresentacionConRestricciones(lunaPark,15,12,2017){}
+	
+	
