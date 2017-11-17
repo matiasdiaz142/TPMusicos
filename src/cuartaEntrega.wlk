@@ -142,7 +142,11 @@ class VocalistaPopular inherits Musico {
 		habilidad = nuevaHabilidad
 	}
 }
-
+object joaquin inherits Larguero(20,false,[especialLaFamilia],300){}
+object especialLaFamilia inherits Album([laFamilia],17,06,1992,100000,89000){}
+object laFamilia inherits Cancion(264,"Quiero brindar por mi gente sencilla, por el amor brindo por la familia"){}
+object cisne inherits Cancion(312,"Hoy el viento se abrió quedó vacío el aire una vez más y el manantial brotó y nadie está aquí y puedo ver que solo estallan las hojas al brillar"){}
+	
 object luisAlberto inherits Musico ( 8 , true , [ ] ) {
 	var guitarra = gibson
 	
