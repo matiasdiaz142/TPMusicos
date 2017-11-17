@@ -52,5 +52,8 @@ test "Joaquin interpreta bien La Familia"{
 	
 	assert.that(joaquin.interpretaBien(laFamilia))
 }
-
+test "Joaquin interpreta bien Cisne"{
+	
+	assert.that(joaquin.interpretaBien(cisne))
+}
 }

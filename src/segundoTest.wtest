@@ -44,7 +44,7 @@ test "Alma de diamante es corta"{
 	assert.notThat(almaDeDiamante.esCorta())
 }
 test "Soledad es minimalista"{
-	assert.that(laSole.esDeDuracionCorta())
+	assert.that(soledad.esMinimalista())
 }
 test "Luis Alberto es minimalista"{
 	assert.that(luisAlberto1.esMinimalista())
